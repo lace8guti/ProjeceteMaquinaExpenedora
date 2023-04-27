@@ -29,7 +29,15 @@ public class MaquinaExpenedora {
     */
     
     public void realitzarCompra(int preu) {
-
+        if (quantitatProductes == 0) {
+            System.out.println("Disculpi, la màquina expenedora ara mateix és buida.");
+        } else if (preu > saldo) {
+            System.out.println("Saldo insuficient. Si us plau, introdueixi més efectiu.");
+        } else {
+            quantitatProductes--;
+            saldo -= preu;
+            System.out.println("Compra realitzada. Disfruti del seu producte i tingui un bon dia");
+        }
     }
     
     /* 
@@ -37,7 +45,8 @@ public class MaquinaExpenedora {
     * sugiero utilizar quantitatProductes = quantitatInicial en este método, para actualizarla. 
     */
     public void reabastir(int quantitat) {
-        
+        quantitatProductes += quantitat;
+        System.out.println(quantitat + " productes s'han introduït a la màquina expenedora.");
     }
     
      
